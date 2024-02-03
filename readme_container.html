@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>readme_container</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<section id="Installation-Instructions-on-AlmaLinux-Container">
+<h1 id="installation-instructions-on-almalinux-container">Installation
+Instructions on AlmaLinux Container</h1>
+<p>Due to the official binaries only supporting Red Hat Enterprise Linux
+(RHEL) 8 &amp; 9, we are going to use AlmaLinux due to its binary
+compatability with RHEL.</p>
+<p>This short guide is mainly targeted at those who use <a
+href="https://github.com/89luca89/distrobox">distrobox</a> to install
+“toolbox” containers on immutable OSs. Therefore, distrobox is a
+pre-requisite for the following commands.</p>
+<ol type="1">
+<li>Run
+<code>distrobox create --pull --image quay.io/toolbx-images/almalinux-toolbox:8 --name alma8-box</code>
+to create container. Replace alma8-box with your preference.</li>
+<li>Enter toolbox with <code>distrobox enter alma8-box</code></li>
+<li>Run <code>sudo dnf install python3 sqlite</code> to provide
+autocomplete and get rid of dnf warnings</li>
+<li>Run <code>sudo dnf install libgfortran gtk3 webkit2gtk3</code> as
+dependencies for Dakota
+<ul>
+<li>The packages <code>gtk3</code> and <code>webkit2gtk3</code> are only
+necessary if you are using the GUI</li>
+</ul></li>
+</ol>
+<p>Inside the Dakota installation directory, you should now be able to
+run <code>bin/dakota</code> and <code>gui/DakotaUI</code> without
+issues</p>
+</section>
+</body>
+</html>

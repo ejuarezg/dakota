@@ -1,0 +1,15 @@
+# Installation Instructions on AlmaLinux Container
+
+Due to the official binaries only supporting Red Hat Enterprise Linux (RHEL) 8 & 9, we are going to use AlmaLinux due to its binary compatability with RHEL.
+
+This short guide is mainly targeted at those who use [distrobox](https://github.com/89luca89/distrobox) to install "toolbox" containers on immutable OSs. Therefore, distrobox is a pre-requisite for the following commands.
+
+1. Run `distrobox create --pull --image quay.io/toolbx-images/almalinux-toolbox:8 --name alma8-box` to create container. Replace alma8-box with your preference.
+1. Enter toolbox with `distrobox enter alma8-box`
+1. Run `sudo dnf install python3 sqlite` to provide autocomplete and get rid of dnf warnings
+1. Run `sudo dnf install libgfortran gtk3 webkit2gtk3` as dependencies for Dakota
+
+  - The packages `gtk3` and `webkit2gtk3` are only necessary if you are using the GUI
+
+Inside the Dakota installation directory, you should now be able to run `bin/dakota` and `gui/DakotaUI` without issues
+
